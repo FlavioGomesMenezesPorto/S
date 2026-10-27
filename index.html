@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mentalist Consciente | Ebooks de Mentalismo</title>
+  <meta name="description" content="Ebooks de mentalismo, leitura fria, linguagem corporal, memória e persuasão ética. Desperte a mente que observa." />
+  <meta name="theme-color" content="#080a12" />
+
+  <meta property="og:title" content="Mentalist Consciente" />
+  <meta property="og:description" content="Ebooks de mentalismo para despertar a mente que observa." />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='30' fill='%23080a12' stroke='%23c9a45c' stroke-width='3'/><path d='M10 32 Q32 12 54 32 Q32 52 10 32Z' fill='none' stroke='%23c9a45c' stroke-width='3'/><circle cx='32' cy='32' r='7' fill='%23c9a45c'/></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- ============ HEADER ============ -->
+  <header class="header" id="topo">
+    <div class="container header__inner">
+      <a href="#inicio" class="logo" aria-label="Mentalist Consciente — início">
+        <svg class="logo__mark" viewBox="0 0 64 64" aria-hidden="true">
+          <circle cx="32" cy="32" r="29" />
+          <path d="M9 32 Q32 11 55 32 Q32 53 9 32Z" />
+          <circle class="logo__pupil" cx="32" cy="32" r="7" />
+        </svg>
+        <span class="logo__text">Mentalist<em>Consciente</em></span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Principal">
+        <a href="#sobre">Sobre</a>
+        <a href="#ebooks">Ebooks</a>
+        <a href="#pilares">Método</a>
+        <a href="forum.html">Comunidade</a>
+        <a href="#faq">Dúvidas</a>
+      </nav>
+
+      <div class="header__actions">
+        <button class="cart-btn" id="cartOpen" aria-label="Abrir carrinho">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+          <span class="cart-btn__count" id="cartCount">0</span>
+        </button>
+        <button class="menu-btn" id="menuBtn" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="inicio">
+      <canvas class="hero__canvas" id="constelacao" aria-hidden="true"></canvas>
+      <div class="hero__glow" aria-hidden="true"></div>
+
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <p class="eyebrow reveal">Mentalismo · Percepção · Consciência</p>
+          <h1 class="hero__title reveal">
+            Desperte a&nbsp;mente <br /><em>que observa.</em>
+          </h1>
+          <p class="hero__lead reveal">
+            Ebooks práticos para você aprender a ler pessoas, treinar a atenção,
+            fortalecer a memória e influenciar com ética, do jeito que os mentalistas fazem.
+          </p>
+          <div class="hero__cta reveal">
+            <a href="#ebooks" class="btn btn--gold">Conhecer os ebooks</a>
+            <a href="#sobre" class="btn btn--ghost">Sobre o método</a>
+          </div>
+          <ul class="trust reveal" aria-label="Garantias">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 3 4 14h7l-1 7 9-11h-7l1-7Z"/></svg>Entrega imediata</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="2.5" width="14" height="19" rx="2.5"/><path d="M10 18h4"/></svg>Leia em qualquer dispositivo</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v5c0 4.5 3 8.3 7 10 4-1.7 7-5.5 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg>Conteúdo ético</li>
+          </ul>
+        </div>
+
+        <div class="hero__capas reveal" id="heroCapas" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- ============ NÚMEROS ============ -->
+    <div class="stats" id="stats">
+      <div class="container stats__grid">
+        <div class="stat"><strong id="statEbooks">—</strong><span>ebooks publicados</span></div>
+        <div class="stat"><strong id="statPaginas">—</strong><span>páginas de conteúdo prático</span></div>
+        <div class="stat"><strong>PDF</strong><span>celular, tablet ou computador</span></div>
+        <div class="stat"><strong>24h</strong><span>acesso a qualquer hora</span></div>
+      </div>
+    </div>
+
+    <!-- ============ SOBRE ============ -->
+    <section class="section sobre" id="sobre">
+      <div class="container sobre__grid">
+        <div class="sobre__visual reveal">
+          <div class="sobre__frame">
+            <!-- Sua foto: salve a imagem como img/perfil.jpg. Enquanto o arquivo não existir, aparece o painel com a marca. -->
+            <img class="sobre__foto" src="img/perfil.jpg" alt="Mentalist Consciente" onerror="this.remove()" />
+            <div class="sobre__placeholder">
+              <svg viewBox="0 0 64 64" aria-hidden="true">
+                <circle cx="32" cy="32" r="29" />
+                <path d="M9 32 Q32 11 55 32 Q32 53 9 32Z" />
+                <circle class="fill" cx="32" cy="32" r="7" />
+              </svg>
+              <span>Mentalist Consciente</span>
+            </div>
+          </div>
+          <div class="sobre__badge">
+            <strong>Ética</strong>
+            <span>em primeiro lugar</span>
+          </div>
+        </div>
+
+        <div class="sobre__text">
+          <p class="eyebrow reveal">Sobre</p>
+          <h2 class="section__title reveal">Não é mágica.<br /><em>É percepção treinada.</em></h2>
+          <p class="reveal">
+            O mentalismo é a arte de usar a mente de forma extraordinária: observar
+            o que ninguém nota, lembrar o que todos esquecem e entender as pessoas
+            além das palavras.
+          </p>
+          <p class="reveal">
+            Consciência é a capacidade de perceber o mundo. O inconsciente é tudo
+            o que a mente processa sem que a gente note. O mentalista aprende a
+            transitar entre os dois.
+          </p>
+          <p class="reveal">
+            Sou escritor e, no <strong>Mentalist Consciente</strong>, compartilho técnicas reais de
+            observação, psicologia e comunicação de um jeito simples e aplicável.
+            Sempre com ética, porque ler pessoas é uma responsabilidade.
+          </p>
+          <a href="https://instagram.com/mentalistconsciente" target="_blank" rel="noopener" class="link-arrow reveal">
+            Acompanhe os conteúdos no Instagram <span>→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DESTAQUE ============ -->
+    <section class="section destaque" id="destaque">
+      <div class="container destaque__grid" id="destaqueBox">
+        <!-- preenchido via JS -->
+      </div>
+    </section>
+
+    <!-- ============ EBOOKS ============ -->
+    <section class="section ebooks" id="ebooks">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow reveal">Biblioteca</p>
+          <h2 class="section__title reveal">Ebooks para <em>afiar a mente</em></h2>
+          <p class="section__sub reveal">Leitura direta ao ponto, com exercícios práticos. Escolha por onde começar.</p>
+        </div>
+
+        <div class="filtros reveal" id="filtros" role="tablist" aria-label="Filtrar por categoria"></div>
+
+        <div class="grid" id="gridEbooks"></div>
+      </div>
+    </section>
+
+    <!-- ============ PILARES ============ -->
+    <section class="section pilares" id="pilares">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow reveal">O método</p>
+          <h2 class="section__title reveal">Quatro pilares de uma <em>mente consciente</em></h2>
+        </div>
+
+        <div class="pilares__grid">
+          <article class="pilar reveal">
+            <span class="pilar__num">01</span>
+            <div class="pilar__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></div>
+            <h3>Observação</h3>
+            <p>Treinar os olhos para captar detalhes que passam despercebidos: gestos, padrões e contextos.</p>
+          </article>
+          <article class="pilar reveal">
+            <span class="pilar__num">02</span>
+            <div class="pilar__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1" class="fill"/></svg></div>
+            <h3>Atenção</h3>
+            <p>Presença total no momento. Sem foco não existe leitura, só ruído.</p>
+          </article>
+          <article class="pilar reveal">
+            <span class="pilar__num">03</span>
+            <div class="pilar__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3Z"/></svg></div>
+            <h3>Memória</h3>
+            <p>Técnicas milenares para guardar nomes, números e informações com facilidade.</p>
+          </article>
+          <article class="pilar reveal">
+            <span class="pilar__num">04</span>
+            <div class="pilar__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z"/><path d="M8.5 12h7M8.5 9h4"/></svg></div>
+            <h3>Influência ética</h3>
+            <p>Comunicar com clareza, criar conexão real e conduzir conversas sem manipular.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FRASES ============ -->
+    <section class="section frases" id="frases">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow reveal">Reflexões</p>
+          <h2 class="section__title reveal">Frases para <em>despertar</em></h2>
+          <p class="section__sub reveal">Pensamentos que também compartilho no Instagram.</p>
+        </div>
+        <div class="frases__grid" id="frasesGrid"></div>
+        <a href="https://instagram.com/mentalistconsciente" target="_blank" rel="noopener" class="link-arrow reveal">
+          Ver mais no Instagram <span>→</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ COMO FUNCIONA ============ -->
+    <section class="section passos">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow reveal">Simples assim</p>
+          <h2 class="section__title reveal">Como <em>funciona</em></h2>
+        </div>
+        <ol class="passos__list">
+          <li class="reveal"><span>1</span><h3>Escolha seu ebook</h3><p>Navegue pela biblioteca e veja o que cada material ensina.</p></li>
+          <li class="reveal"><span>2</span><h3>Finalize a compra</h3><p>Pagamento rápido e seguro.</p></li>
+          <li class="reveal"><span>3</span><h3>Receba na hora</h3><p>O ebook em PDF chega no seu e-mail para ler no celular, tablet ou computador.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="section faq" id="faq">
+      <div class="container faq__grid">
+        <div>
+          <p class="eyebrow reveal">Dúvidas</p>
+          <h2 class="section__title reveal">Perguntas <em>frequentes</em></h2>
+          <p class="section__sub reveal">Não encontrou o que procurava? Me chame no Instagram.</p>
+        </div>
+        <div class="faq__list">
+          <details class="reveal">
+            <summary>Preciso ter experiência com mentalismo?</summary>
+            <p>Não. Os ebooks são escritos para iniciantes, mas trazem técnicas que também servem para quem já pratica. Se está começando, o <strong>Kit Mentalista Iniciante</strong> é o melhor ponto de partida.</p>
+          </details>
+          <details class="reveal">
+            <summary>Em qual formato recebo o ebook?</summary>
+            <p>Em PDF, que abre em qualquer celular, tablet ou computador. Você pode ler quantas vezes quiser.</p>
+          </details>
+          <details class="reveal">
+            <summary>Como recebo depois de comprar?</summary>
+            <p>Assim que o pagamento é confirmado, você recebe o link de download no e-mail informado na compra.</p>
+          </details>
+          <details class="reveal">
+            <summary>Isso é manipulação?</summary>
+            <p>Não. O foco do Mentalist Consciente é percepção e comunicação com ética. Você aprende inclusive a reconhecer quando alguém tenta manipular você.</p>
+          </details>
+          <details class="reveal">
+            <summary>Quais formas de pagamento são aceitas?</summary>
+            <p>O checkout online está em fase final de implantação. Até lá, a compra é feita com atendimento direto pelo <a href="https://instagram.com/mentalistconsciente" target="_blank" rel="noopener">@mentalistconsciente</a>, e você recebe o ebook logo após a confirmação.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ NEWSLETTER / CONTATO ============ -->
+    <section class="section contato" id="contato">
+      <div class="container">
+        <div class="contato__box reveal">
+          <div class="contato__glow" aria-hidden="true"></div>
+          <p class="eyebrow">Newsletter</p>
+          <h2 class="section__title">Receba conteúdos e <em>lançamentos primeiro</em></h2>
+          <p class="section__sub">Técnicas exclusivas, novidades e condições de lançamento direto no seu e-mail.</p>
+          <form class="news" id="newsForm" novalidate>
+            <label class="sr-only" for="newsEmail">Seu e-mail</label>
+            <input type="email" id="newsEmail" placeholder="Seu melhor e-mail" required autocomplete="email" />
+            <button type="submit" class="btn btn--gold">Inscrever-se</button>
+          </form>
+          <p class="news__msg" id="newsMsg" role="status"></p>
+          <p class="news__legal">Sem spam. Você pode cancelar a inscrição quando quiser.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="#inicio" class="logo">
+          <svg class="logo__mark" viewBox="0 0 64 64" aria-hidden="true">
+            <circle cx="32" cy="32" r="29" />
+            <path d="M9 32 Q32 11 55 32 Q32 53 9 32Z" />
+            <circle class="logo__pupil" cx="32" cy="32" r="7" />
+          </svg>
+          <span class="logo__text">Mentalist<em>Consciente</em></span>
+        </a>
+        <p>Ebooks práticos de mentalismo, percepção, memória e comunicação ética.</p>
+      </div>
+      <nav class="footer__col" aria-label="Navegação">
+        <h4>Navegação</h4>
+        <a href="#sobre">Sobre</a>
+        <a href="#ebooks">Ebooks</a>
+        <a href="#pilares">Método</a>
+        <a href="forum.html">Comunidade</a>
+      </nav>
+      <div class="footer__col">
+        <h4>Atendimento</h4>
+        <a href="#faq">Perguntas frequentes</a>
+        <a href="https://instagram.com/mentalistconsciente" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.facebook.com/mentalistconsciente" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.threads.net/@mentalistconsciente" target="_blank" rel="noopener">Threads</a>
+      </div>
+      <div class="footer__col">
+        <h4>Sua compra</h4>
+        <span>Entrega digital em PDF</span>
+        <span>Envio para o e-mail da compra</span>
+        <span>Acesso vitalício ao arquivo</span>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <span>© <span id="ano"></span> Mentalist Consciente. Todos os direitos reservados.</span>
+      <a href="#topo" class="footer__top">Voltar ao topo ↑</a>
+    </div>
+  </footer>
+
+  <!-- ============ MODAL PRODUTO ============ -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal__overlay" data-close></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal__close" data-close aria-label="Fechar">×</button>
+      <div class="modal__body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- ============ CARRINHO ============ -->
+  <aside class="cart" id="cart" aria-hidden="true" aria-label="Carrinho">
+    <div class="cart__overlay" data-cart-close></div>
+    <div class="cart__panel">
+      <div class="cart__head">
+        <h3>Seu carrinho</h3>
+        <button class="modal__close" data-cart-close aria-label="Fechar carrinho">×</button>
+      </div>
+      <ul class="cart__items" id="cartItems"></ul>
+      <div class="cart__foot">
+        <div class="cart__total"><span>Total</span><strong id="cartTotal">R$ 0,00</strong></div>
+        <button class="btn btn--gold btn--full" id="checkoutBtn">Finalizar compra</button>
+        <p class="cart__note" id="checkoutNote"></p>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ============ TOAST ============ -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/produtos.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

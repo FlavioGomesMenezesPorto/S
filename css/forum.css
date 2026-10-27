@@ -1,0 +1,257 @@
+/* =========================================================
+   MENTALIST CONSCIENTE — fórum / comunidade
+   ========================================================= */
+
+.header { background: rgba(8, 10, 18, 0.75); backdrop-filter: blur(14px); border-bottom-color: var(--line); }
+.nav a[aria-current="page"] { color: var(--gold-light); }
+
+/* ---------- conta (header) ---------- */
+.conta { display: flex; align-items: center; gap: 10px; }
+.conta__user { display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: var(--muted); }
+.conta__sair { background: none; border: 0; padding: 0; color: var(--muted); font-size: 0.82rem; text-decoration: underline; text-underline-offset: 3px; }
+.conta__sair:hover { color: var(--gold-light); }
+
+.avatar {
+  width: 38px; height: 38px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(201, 164, 92, 0.45);
+  background: var(--surface-2);
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--gold-light);
+}
+.avatar--sm { width: 32px; height: 32px; font-size: 0.95rem; }
+
+.btn--google { background: #fff; color: #1f1f1f; padding: 11px 20px; font-size: 0.88rem; }
+.btn--google:hover { transform: translateY(-2px); box-shadow: 0 10px 30px -10px rgba(255, 255, 255, 0.35); }
+.btn--google svg { width: 18px; height: 18px; stroke: none; }
+
+/* ---------- hero ---------- */
+.forum-hero {
+  position: relative;
+  overflow: hidden;
+  padding: calc(var(--header-h) + clamp(50px, 8vw, 90px)) 0 clamp(40px, 6vw, 60px);
+  border-bottom: 1px solid var(--line);
+}
+.forum-hero .hero__glow { right: -300px; top: 40%; width: 800px; height: 800px; }
+.forum-hero .container { position: relative; }
+.forum-hero__title { font-size: clamp(2.6rem, 7vw, 5rem); }
+
+.demo-banner {
+  background: rgba(201, 164, 92, 0.1);
+  border-bottom: 1px solid rgba(201, 164, 92, 0.3);
+  color: var(--gold-light);
+  font-size: 0.9rem;
+  padding: 14px 0;
+}
+
+/* ---------- layout ---------- */
+.forum { padding: clamp(40px, 6vw, 70px) 0 clamp(80px, 10vw, 120px); }
+.forum__grid { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 40px; align-items: start; }
+.forum__side { position: sticky; top: calc(var(--header-h) + 24px); display: grid; gap: 20px; }
+
+/* ---------- compose ---------- */
+.compose {
+  padding: 26px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line-strong);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(201, 164, 92, 0.1), transparent 50%),
+    var(--surface);
+  margin-bottom: 26px;
+}
+.compose__head { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+.compose__head strong { font-weight: 600; }
+.compose__head small { display: block; color: var(--muted); font-size: 0.8rem; }
+.compose textarea {
+  width: 100%;
+  min-height: 120px;
+  resize: vertical;
+  padding: 18px 20px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line-strong);
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-style: italic;
+  line-height: 1.4;
+  outline: none;
+  transition: border-color 0.3s;
+}
+.compose textarea::placeholder { color: var(--muted); opacity: 0.7; }
+.compose textarea:focus { border-color: var(--gold); }
+.compose__foot { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 14px; flex-wrap: wrap; }
+.compose__count { font-size: 0.82rem; color: var(--muted); }
+.compose__count.is-over { color: #ff8f8f; }
+.compose__note { font-size: 0.82rem; color: var(--muted); margin: 0; }
+
+.compose--login { text-align: center; padding: 40px 26px; }
+.compose--login h3 { font-size: 1.9rem; margin-bottom: 8px; }
+.compose--login p { color: var(--muted); margin: 0 0 22px; }
+
+/* ---------- pendentes ---------- */
+.pendentes { margin-bottom: 26px; display: grid; gap: 12px; }
+.pendentes h4 { margin: 0 0 4px; font-size: 0.75rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.pendente {
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  padding: 16px 20px;
+  border-radius: var(--radius-sm);
+  border: 1px dashed rgba(201, 164, 92, 0.4);
+  background: rgba(201, 164, 92, 0.04);
+}
+.pendente p { margin: 0; font-family: var(--font-display); font-style: italic; font-size: 1.15rem; }
+.pendente__acoes { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
+
+/* ---------- barra ---------- */
+.forum__bar { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 22px; }
+.forum__bar .filtros { margin: 0; }
+.forum__count { font-size: 0.85rem; color: var(--muted); }
+
+/* ---------- mural ---------- */
+.mural { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; align-items: start; margin-bottom: 20px; }
+.post {
+  margin: 0;
+  padding: 26px 26px 20px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, var(--surface-2), var(--surface));
+  position: relative;
+  animation: cardIn 0.6s var(--ease) both;
+  transition: border-color 0.4s;
+}
+.post:hover { border-color: rgba(201, 164, 92, 0.35); }
+.post::before {
+  content: "“";
+  position: absolute;
+  top: 6px; right: 20px;
+  font-family: var(--font-display);
+  font-size: 5rem;
+  line-height: 1;
+  color: rgba(201, 164, 92, 0.18);
+  pointer-events: none;
+}
+.post__texto {
+  margin: 0 0 22px;
+  padding-right: 34px;
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-style: italic;
+  line-height: 1.35;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.post__foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 16px; border-top: 1px solid var(--line); }
+.post__autor { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.post__autor strong { display: block; font-size: 0.88rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.post__autor small { display: block; font-size: 0.76rem; color: var(--muted); }
+.post__acoes { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+
+.like {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 7px 13px;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  font-size: 0.85rem;
+  color: var(--muted);
+  transition: all 0.3s var(--ease);
+}
+.like svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; transition: transform 0.3s var(--ease); }
+.like:hover { color: var(--gold-light); border-color: var(--gold); }
+.like.is-liked { color: #1a1307; background: var(--gold); border-color: var(--gold); }
+.like.is-liked svg { fill: currentColor; }
+.like.pop svg { animation: bump 0.5s var(--ease); }
+
+.post__apagar { background: none; border: 0; color: var(--muted); font-size: 0.78rem; padding: 6px; text-decoration: underline; text-underline-offset: 3px; }
+.post__apagar:hover { color: #ff8f8f; }
+
+.mural__vazio { grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: var(--muted); border: 1px dashed var(--line-strong); border-radius: var(--radius); }
+.mural__vazio span { display: block; font-size: 2.4rem; color: var(--gold); margin-bottom: 8px; }
+.mural__mais { display: flex; margin: 10px auto 0; }
+.mural__mais[hidden] { display: none; }
+.admin-item .post__texto { padding-right: 0; }
+
+.skeleton { height: 180px; border-radius: var(--radius); background: linear-gradient(90deg, var(--surface) 0%, var(--surface-2) 50%, var(--surface) 100%); background-size: 200% 100%; animation: shimmer 1.4s infinite; }
+@keyframes shimmer { to { background-position: -200% 0; } }
+
+/* ---------- lateral ---------- */
+.regras, .side-cta { padding: 26px; border-radius: var(--radius); border: 1px solid var(--line); background: var(--surface); }
+.regras h3, .side-cta h3 { font-size: 1.6rem; margin-bottom: 16px; }
+.regras ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.regras li { display: flex; gap: 12px; font-size: 0.9rem; color: var(--muted); }
+.regras li span { color: var(--gold); flex-shrink: 0; width: 18px; text-align: center; }
+.side-cta .eyebrow { margin-bottom: 10px; }
+.side-cta h3 { margin-bottom: 6px; }
+.side-cta p { color: var(--muted); font-size: 0.92rem; margin: 0 0 18px; }
+
+/* ---------- admin ---------- */
+.admin-tabs { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px; }
+.admin-tabs .filtro span { margin-left: 6px; opacity: 0.8; }
+.admin-lista { display: grid; gap: 14px; }
+.admin-item { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; padding: 22px 24px; border-radius: var(--radius); border: 1px solid var(--line); background: var(--surface); }
+.admin-item .post__texto { font-size: 1.25rem; margin-bottom: 12px; }
+.admin-item__acoes { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+.admin-item__acoes .btn { padding: 11px 20px; }
+.btn--danger { border-color: rgba(255, 143, 143, 0.4); color: #ffb3b3; }
+.btn--danger:hover { border-color: #ff8f8f; color: #ff8f8f; }
+.aviso { padding: 50px 26px; text-align: center; border-radius: var(--radius); border: 1px solid var(--line-strong); background: var(--surface); }
+.aviso h3 { font-size: 1.9rem; margin-bottom: 10px; }
+.aviso p { color: var(--muted); margin: 0 0 22px; }
+
+/* ---------- responsivo ---------- */
+@media (max-width: 960px) {
+  .forum__grid { grid-template-columns: 1fr; }
+  .forum__side { position: static; }
+}
+@media (max-width: 860px) {
+  .conta__nome { display: none; }
+}
+@media (max-width: 560px) {
+  .mural { grid-template-columns: 1fr; }
+  .compose { padding: 20px; }
+  .pendente { flex-direction: column; align-items: flex-start; }
+  .admin-item { grid-template-columns: 1fr; }
+  .admin-item__acoes { justify-content: flex-start; }
+  .conta .btn--google span { display: none; }
+  .conta .btn--google { padding: 11px; }
+}
+
+/* ---------- frases da página ---------- */
+.oficiais { margin-bottom: 40px; padding-bottom: 40px; border-bottom: 1px solid var(--line); }
+.oficiais__head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 22px; }
+.oficiais__head h2 { font-size: clamp(1.8rem, 3.4vw, 2.4rem); }
+.oficiais__head .link-arrow { margin-top: 0; font-size: 0.9rem; }
+.oficiais .frases__grid { grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 18px; margin-bottom: 0; }
+.oficiais .frase blockquote { font-size: 0.98rem; }
+
+/* ---------- botão moderar (admins) ---------- */
+.moderar {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(201, 164, 92, 0.5);
+  color: var(--gold-light);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.25s, color 0.25s;
+}
+.moderar:hover { background: var(--gold); color: #1a1307; }
+.moderar__count {
+  min-width: 20px; height: 20px;
+  padding: 0 6px;
+  border-radius: 10px;
+  background: var(--gold);
+  color: #1a1307;
+  font-size: 0.72rem;
+  display: grid;
+  place-items: center;
+}
+.moderar:hover .moderar__count { background: #1a1307; color: var(--gold-light); }

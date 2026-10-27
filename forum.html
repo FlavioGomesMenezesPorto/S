@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Comunidade | Mentalist Consciente</title>
+  <meta name="description" content="O Mural do Observador: frases, reflexões e insights da comunidade Mentalist Consciente." />
+  <meta name="theme-color" content="#080a12" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='30' fill='%23080a12' stroke='%23c9a45c' stroke-width='3'/><path d='M10 32 Q32 12 54 32 Q32 52 10 32Z' fill='none' stroke='%23c9a45c' stroke-width='3'/><circle cx='32' cy='32' r='7' fill='%23c9a45c'/></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/forum.css" />
+</head>
+<body>
+  <header class="header" id="topo">
+    <div class="container header__inner">
+      <a href="index.html" class="logo" aria-label="Mentalist Consciente — início">
+        <svg class="logo__mark" viewBox="0 0 64 64" aria-hidden="true">
+          <circle cx="32" cy="32" r="29" />
+          <path d="M9 32 Q32 11 55 32 Q32 53 9 32Z" />
+          <circle class="logo__pupil" cx="32" cy="32" r="7" />
+        </svg>
+        <span class="logo__text">Mentalist<em>Consciente</em></span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Principal">
+        <a href="index.html#sobre">Sobre</a>
+        <a href="index.html#ebooks">Ebooks</a>
+        <a href="forum.html" aria-current="page">Comunidade</a>
+        <a href="index.html#faq">Dúvidas</a>
+      </nav>
+
+      <div class="header__actions">
+        <div class="conta" id="conta"></div>
+        <button class="menu-btn" id="menuBtn" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="forum-hero">
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="container">
+        <p class="eyebrow">Comunidade</p>
+        <h1 class="forum-hero__title">O Mural do <em>Observador</em></h1>
+        <p class="section__sub">Frases, reflexões e percepções da comunidade. Compartilhe o que a sua mente notou hoje.</p>
+      </div>
+    </section>
+
+    <div class="demo-banner" id="demoBanner" hidden>
+      <div class="container">
+        <strong>Modo demonstração.</strong> O fórum ainda não está conectado ao banco de dados. Os posts abaixo são só exemplos para você ver o visual.
+      </div>
+    </div>
+
+    <section class="forum">
+      <div class="container forum__grid">
+        <div class="forum__main">
+          <!-- frases da página (lista FRASES em js/produtos.js) -->
+          <div class="oficiais" id="oficiais" hidden>
+            <div class="oficiais__head">
+              <h2>Frases da <em>página</em></h2>
+              <a href="https://instagram.com/mentalistconsciente" target="_blank" rel="noopener" class="link-arrow">@mentalistconsciente <span>→</span></a>
+            </div>
+            <div class="frases__grid" id="oficiaisGrid"></div>
+          </div>
+
+          <!-- caixa de postagem -->
+          <div class="compose" id="compose"></div>
+
+          <!-- meus posts aguardando aprovação -->
+          <div class="pendentes" id="pendentes" hidden></div>
+
+          <!-- ordenação -->
+          <div class="forum__bar">
+            <div class="filtros" role="tablist" aria-label="Ordenar">
+              <button class="filtro is-active" data-ordem="recentes" role="tab" aria-selected="true">Recentes</button>
+              <button class="filtro" data-ordem="curtidos" role="tab" aria-selected="false">Mais curtidos</button>
+            </div>
+            <span class="forum__count" id="forumCount"></span>
+          </div>
+
+          <!-- mural -->
+          <div class="mural" id="mural" aria-live="polite"></div>
+          <button class="btn btn--ghost mural__mais" id="carregarMais" hidden>Carregar mais</button>
+        </div>
+
+        <aside class="forum__side">
+          <div class="regras">
+            <h3>Regras do mural</h3>
+            <ul>
+              <li><span>◉</span>Respeito sempre. Nada de ofensas, preconceito ou ataques.</li>
+              <li><span>☾</span>Frases, reflexões e experiências. Sem propaganda ou links.</li>
+              <li><span>✦</span>Se a frase não for sua, cite o autor.</li>
+              <li><span>⟁</span>Todo post é revisado antes de aparecer.</li>
+            </ul>
+          </div>
+          <div class="side-cta">
+            <p class="eyebrow">Biblioteca</p>
+            <h3>Quer ir mais fundo?</h3>
+            <p>Conheça os ebooks do Mentalist Consciente.</p>
+            <a href="index.html#ebooks" class="btn btn--gold btn--full">Ver ebooks</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__bottom">
+      <span>© <span id="ano"></span> Mentalist Consciente.</span>
+      <a href="https://instagram.com/mentalistconsciente" target="_blank" rel="noopener" class="footer__top">@mentalistconsciente</a>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/produtos.js"></script>
+  <script src="js/comunidade.js"></script>
+  <script src="js/forum.js"></script>
+</body>
+</html>
