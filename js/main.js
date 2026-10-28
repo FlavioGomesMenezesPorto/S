@@ -269,17 +269,48 @@
   }));
 
   /* ---------- newsletter ---------- */
-  // Sem backend por enquanto: conecte depois a Mailchimp, Brevo, ConvertKit, etc.
-  $("#newsForm").addEventListener("submit", (e) => {
+  // Grava na tabela "newsletter" do Supabase (ver supabase/schema.sql) pela API REST,
+  // sem carregar a biblioteca inteira na página inicial.
+  const newsURL = typeof SUPABASE_URL !== "undefined" && SUPABASE_URL ? `${SUPABASE_URL}/rest/v1/newsletter` : "";
+  const newsKey = typeof SUPABASE_KEY !== "undefined" ? SUPABASE_KEY : "";
+
+  $("#newsForm").addEventListener("submit", async (e) => {
     e.preventDefault();
     const input = $("#newsEmail");
+    const btn = $("button[type=submit]", e.target);
     const msg = $("#newsMsg");
-    const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim());
-    msg.classList.toggle("is-error", !ok);
-    if (!ok) { msg.textContent = "Digite um e-mail válido."; input.focus(); return; }
-    msg.textContent = "Inscrição confirmada. Obrigado!";
-    input.value = "";
+    const email = input.value.trim().toLowerCase();
+    const aviso = (texto, erro) => { msg.textContent = texto; msg.classList.toggle("is-error", erro); };
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { aviso("Digite um e-mail válido.", true); input.focus(); return; }
+    if (!newsURL || !newsKey) { aviso(`As inscrições abrem em breve. Acompanhe pelo ${CONFIG.usuarioInstagram}.`, true); return; }
+
+    btn.disabled = true;
+    try {
+      const r = await fetch(newsURL, {
+        method: "POST",
+        headers: { apikey: newsKey, "Content-Type": "application/json", Prefer: "return=minimal" },
+        body: JSON.stringify({ email }),
+      });
+      // 409 = e-mail já inscrito: para a pessoa, o resultado é o mesmo
+      if (!r.ok && r.status !== 409) throw new Error(`HTTP ${r.status}`);
+      aviso("Inscrição confirmada. Obrigado!", false);
+      input.value = "";
+    } catch (err) {
+      console.error(err);
+      aviso("Não foi possível inscrever agora. Tente de novo em instantes.", true);
+    } finally {
+      btn.disabled = false;
+    }
   });
+
+  /* ---------- e-mail de contato ---------- */
+  const emailContato = $("#emailContato");
+  if (emailContato && CONFIG.email) {
+    emailContato.href = `mailto:${CONFIG.email}`;
+    emailContato.textContent = CONFIG.email;
+    emailContato.hidden = false;
+  }
 
   /* ---------- reveal on scroll ---------- */
   function observarReveal() {

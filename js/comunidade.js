@@ -88,13 +88,13 @@ const MC = (() => {
 
   // Botão "Moderar" para administradores (fora da própria página de moderação)
   async function mostrarModerar(el) {
-    if (!sb || location.pathname.endsWith("admin.html")) return;
+    if (!sb || /\/admin(\.html)?$/.test(location.pathname)) return;
     const { data: admin } = await sb.rpc("is_admin");
     if (!admin) return;
     const { count } = await sb.from("posts").select("id", { count: "exact", head: true }).eq("status", "pending");
     if (el.querySelector(".moderar")) return;
     el.insertAdjacentHTML("afterbegin", `
-      <a href="admin.html" class="moderar" title="Aprovar ou recusar posts">
+      <a href="/admin" class="moderar" title="Aprovar ou recusar posts">
         Moderar${count ? `<span class="moderar__count">${count}</span>` : ""}
       </a>`);
   }
@@ -112,6 +112,10 @@ const MC = (() => {
       const aberto = nav.classList.toggle("is-open");
       menuBtn.setAttribute("aria-expanded", aberto);
     });
+    nav.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => {
+      nav.classList.remove("is-open");
+      menuBtn.setAttribute("aria-expanded", "false");
+    }));
   }
 
   const ano = $("#ano");

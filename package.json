@@ -1,0 +1,16 @@
+{
+  "name": "mentalistconsciente",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "serve .",
+    "preview": "node build.mjs && serve dist"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "html-minifier-terser": "^7.2.0",
+    "javascript-obfuscator": "^5.9.0",
+    "serve": "^14.2.6"
+  }
+}

@@ -97,8 +97,18 @@ create table if not exists public.likes (
 
 alter table public.likes enable row level security;
 
+-- Cada pessoa só vê as próprias curtidas; o total por post vem da função abaixo,
+-- então ninguém consegue listar quem curtiu o quê.
 drop policy if exists "ver curtidas" on public.likes;
-create policy "ver curtidas" on public.likes for select using (true);
+drop policy if exists "ver proprias curtidas" on public.likes;
+create policy "ver proprias curtidas" on public.likes for select using (user_id = auth.uid());
+
+create or replace function public.contar_curtidas(pid uuid)
+returns int
+language sql stable security definer set search_path = public
+as $$
+  select count(*)::int from public.likes where post_id = pid;
+$$;
 
 drop policy if exists "curtir post aprovado" on public.likes;
 create policy "curtir post aprovado" on public.likes
@@ -114,7 +124,28 @@ create policy "descurtir" on public.likes for delete using (user_id = auth.uid()
 -- ---------- visão com contagem de curtidas ----------
 create or replace view public.forum_posts
 with (security_invoker = true) as
-  select p.*, (select count(*) from public.likes l where l.post_id = p.id)::int as likes
+  select p.*, public.contar_curtidas(p.id) as likes
   from public.posts p;
 
 grant select on public.forum_posts to anon, authenticated;
+
+-- ---------- newsletter ----------
+-- Qualquer visitante pode se inscrever; só administradores leem a lista
+-- (Supabase → Table Editor → newsletter, ou exportar em CSV).
+create table if not exists public.newsletter (
+  email      text primary key
+             check (char_length(email) <= 254 and email = lower(email) and email ~ '^[^\s@]+@[^\s@]+\.[^\s@]+$'),
+  created_at timestamptz not null default now()
+);
+
+alter table public.newsletter enable row level security;
+
+drop policy if exists "inscrever na newsletter" on public.newsletter;
+create policy "inscrever na newsletter" on public.newsletter
+  for insert to anon, authenticated with check (true);
+
+drop policy if exists "admin le newsletter" on public.newsletter;
+create policy "admin le newsletter" on public.newsletter
+  for select using (public.is_admin());
+
+grant insert on public.newsletter to anon, authenticated;

@@ -255,3 +255,12 @@
   place-items: center;
 }
 .moderar:hover .moderar__count { background: #1a1307; color: var(--gold-light); }
+
+/* ---------- privacidade e termos ---------- */
+.legal { max-width: 780px; padding-bottom: clamp(80px, 10vw, 120px); }
+.legal h2 { font-size: clamp(1.5rem, 3vw, 1.9rem); margin: 48px 0 12px; }
+.legal h2:first-child { margin-top: 0; }
+.legal p, .legal li { color: var(--muted); }
+.legal ul { padding-left: 1.2em; display: grid; gap: 8px; }
+.legal strong { color: var(--text); }
+.legal a { color: var(--gold-light); }
